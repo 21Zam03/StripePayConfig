@@ -39,7 +39,7 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public PaymentIntent confirmPaymentIntent(String paymentId) throws StripeException {
         Stripe.apiKey = stripeKey;
-        PaymentIntent resource = PaymentIntent.retrieve("pi_3MtweELkdIwHu7ix0Dt0gF2H");
+        PaymentIntent resource = PaymentIntent.retrieve(paymentId);
         PaymentIntentConfirmParams params =
                 PaymentIntentConfirmParams.builder()
                         .setPaymentMethod("pm_card_visa")
